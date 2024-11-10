@@ -1,6 +1,10 @@
 spring:
   application:
     name: member-service
+  datasource:
+    url: jdbc:postgresql://localhost:5332/member
+    username: test
+    password: test
 eureka:
   client:
     service-url:
