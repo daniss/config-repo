@@ -16,7 +16,7 @@ spring:
   kafka:
     bootstrap-servers: localhost:9092  # Kafka Broker URL
     consumer:
-      group-id: book-service # Consumer group for book service
+      group-id: book-service-group # Consumer group for book service
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer  # Key deserializer
       value-deserializer: org.apache.kafka.common.serialization.StringDeserializer  # Value deserializer
       properties:
