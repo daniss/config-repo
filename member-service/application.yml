@@ -13,6 +13,13 @@ spring:
         dialect: org.hibernate.dialect.PostgreSQLDialect
         format_sql: true
     show-sql: true
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: member-service-group
+    producer:
+      value-serializer: org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
 eureka:
   client:
     service-url:
