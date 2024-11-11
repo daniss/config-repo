@@ -14,12 +14,17 @@ spring:
         format_sql: true
     show-sql: true
   kafka:
-    bootstrap-servers: localhost:9092
+    bootstrap-servers: localhost:9092  # Kafka Broker URL
     consumer:
-      group-id: member-service-group
+      group-id: member-service-group  # Consumer group
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer  # Key deserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer  # Value deserializer
+      properties:
+        fetch.min.bytes: 50000  # Adjust to consume more data at once
+        max.poll.records: 10  # Control number of records per poll
     producer:
-      value-serializer: org.apache.kafka.common.serialization.StringSerializer
-      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer  # Key serializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer  # Value serializer
 eureka:
   client:
     service-url:

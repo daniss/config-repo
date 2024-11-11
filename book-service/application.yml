@@ -14,12 +14,17 @@ spring:
         format_sql: true
     show-sql: true
   kafka:
-    bootstrap-servers: localhost:9092
+    bootstrap-servers: localhost:9092  # Kafka Broker URL
     consumer:
-      group-id: book-service-group
+      group-id: book-service-group  # Consumer group for book service
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer  # Key deserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer  # Value deserializer
+      properties:
+        fetch.min.bytes: 50000  # Control data consumption
+        max.poll.records: 10  # Adjust record polling
     producer:
-      value-serializer: org.apache.kafka.common.serialization.StringSerializer
-      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer  # Key serializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer  # Value serializer
 eureka:
   client:
     service-url:
