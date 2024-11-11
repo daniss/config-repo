@@ -18,7 +18,7 @@ spring:
     consumer:
       group-id: book-service-group
     producer:
-      value-serializer: org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
 eureka:
   client:
