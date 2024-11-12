@@ -25,6 +25,19 @@ spring:
     producer:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer  # Key serializer
       value-serializer: org.apache.kafka.common.serialization.StringSerializer  # Value serializer
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8080/realms/SpringSecurityKeycloak
+          jwk-set-uri: http://localhost:8080/realms/SpringSecurityKeycloak/protocol/openid-connect/certs
+keycloak:
+  auth-server-url: http://localhost:8080
+  realm: SpringSecurityKeycloak
+  resource: my-app-client
+  principal-attribute: preferred_username
+  use-resource-role-mappings: true
+
 eureka:
   client:
     service-url:
