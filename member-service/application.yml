@@ -29,7 +29,6 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: http://localhost:8080/realms/SpringSecurityKeycloak
           jwk-set-uri: http://localhost:8080/realms/SpringSecurityKeycloak/protocol/openid-connect/certs
 keycloak:
   auth-server-url: http://localhost:8080
