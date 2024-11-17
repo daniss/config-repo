@@ -7,7 +7,7 @@ spring:
     password: test
   jpa:
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: create
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
@@ -25,6 +25,12 @@ spring:
     producer:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer  # Key serializer
       value-serializer: org.apache.kafka.common.serialization.StringSerializer  # Value serializer
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 10MB
+      max-request-size: 10MB
+
 eureka:
   client:
     service-url:
